@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React, { useState } from "react";
+const App = () => {
+  const [data] = useState([
+    {
+      id: 1,
+      title: "Kiran",
+      Image: require("./Images/kk/domain.png").default,
+      description: "lorems",
+    },
+    {
+      id: 2,
+      title: "Kiran",
+      Image: require("./Images/kk/domain.png").default,
+      description: "lorems",
+    },
+  ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {data.map((data, i) => {
+        return (
+          <div key={i}>
+          <p>{data.id}</p>
+            <p>{data.title}</p>
+            <img style={{ width: "100px", height: "100px" }} src={data.Image} alt='' />
+            <p>{data.description}</p>
+          </div>
+        );
+      })}
     </div>
   );
-}
+};
 
 export default App;
